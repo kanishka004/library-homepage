@@ -1,0 +1,126 @@
+$(document).ready(function () {
+    $('.advisory_content').hide();
+    $('#tab1').show();
+
+    $('.advisory_tab a').click(function (e) {
+        e.preventDefault();
+        
+        $('.advisory_tab a').removeClass('active');
+        $(this).addClass('active');
+        var target = $(this).attr('href');
+        $('.advisory_content').hide();
+        $(target).show();
+    });
+
+
+
+
+// awards-ranking.php
+    $(".award_tab_container").hide();
+    $(".award_tab_container:first").show();
+    
+    // Handle tab click event
+    $(".award_tab_link li a").click(function (e) {
+        e.preventDefault();
+        
+        // Remove active class from all tabs and add to the clicked tab
+        $(".award_tab_link li").removeClass("active");
+        $(this).parent("li").addClass("active");
+        
+        // Hide all content and show the clicked one
+        $(".award_tab_container").hide();
+        var activeTab = $(this).attr("href");
+        $(activeTab).fadeIn();
+    });
+
+
+
+//complaints.php
+    $(document).ready(function () {
+        $(".complaints_content").hide(); // Hide all content
+        $("#tab1").show(); // Show the first tab by default
+
+        $(".complaints_tab a").click(function (e) {
+            e.preventDefault();
+            var target = $(this).attr("href"); 
+
+            // Hide all content and show only the selected one
+            if ($(target).is(":visible")) {
+                $(target).slideUp(); // Toggle visibility
+            } else {
+                $(".complaints_content").slideUp();
+                $(target).slideDown();
+            }
+        });
+    });
+});
+
+
+
+
+
+
+$('.accordion_wrapper .accordion_items.open').children('.accordion_container').slideDown();
+$('.accordion_wrapper .accordion_items .accordion_title').on('click', function () {
+
+    $(this).parent('.accordion_items').siblings('.accordion_items.open').removeClass('open').children('.accordion_container').stop(true, true).slideUp();
+
+    if (!$(this).parent().hasClass('open')) {
+        $(this).next('.accordion_container').stop(true, true).slideDown();
+        $(this).parent().addClass('open');
+
+    } else {
+        $(this).next('.accordion_container').stop(true, true).slideUp();
+        $(this).parent().removeClass('open');
+    }
+});
+
+
+
+
+
+//institute.php
+
+var right = document.getElementsByClassName("right");
+    var si = right.length;
+    var z=1;
+    turnRight();
+    function turnRight()
+    {
+        if(si>=1){
+            si--;
+        }
+        else{
+            si=right.length-1;
+            function sttmot(i){
+                setTimeout(function(){right[i].style.zIndex="auto";},300);
+            }
+            for(var i=0;i<right.length;i++){
+                right[i].className="right";
+                sttmot(i);
+                z=1;
+            }
+        }
+        right[si].classList.add("flip");
+        z++;
+        right[si].style.zIndex=z;
+    }
+    function turnLeft()
+    {
+        if(si<right.length){
+            si++;
+        }
+        else{
+            si=1;
+            for(var i=right.length-1;i>0;i--){
+                right[i].classList.add("flip");
+                right[i].style.zIndex=right.length+1-i;
+            }
+        }
+        right[si-1].className="right";
+        setTimeout(function(){right[si-1].style.zIndex="auto";},350);
+    }
+
+
+console.log("Hello CACHE")
+

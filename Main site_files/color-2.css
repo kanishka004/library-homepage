@@ -1,0 +1,23 @@
+:root {
+    --thm-gray: #000;
+    --thm-gray-rgb: 103, 108, 124;
+    --thm-black: #2e3192;
+    --thm-black-rgb: 50, 52, 75;
+    --thm-base: #d1143e;
+    --thm-base-rgb: 209, 20, 62;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--thm-black);
+    font-weight: 700;
+    line-height: 1.25em;
+    font-family: var(--thm-font-2);
+    margin: 0;
+}
